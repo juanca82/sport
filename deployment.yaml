@@ -16,10 +16,13 @@ spec:
     spec:
       containers:
       - name: gym-telemetry-api
-        image: sport-gym-api:v1
+        image: sport-gym-api:v2
         imagePullPolicy: Never
         ports:
         - containerPort: 8001
+        env:
+        - name: API_KEY_SECRET
+          value: "sport-secure-key-2026"
         readinessProbe:
           httpGet:
             path: /health
